@@ -75,5 +75,27 @@ class Client
 
         return $this;
     }
+
+    // Methods
+    public function getAllClients()
+    {
+        // Code pour récupérer tous les livres
+    }
+    public function getOneClient()
+    {
+        // Code pour récupérer tous les livres
+    }
+    public function addClient()
+    {
+        // Code pour récupérer tous les livres
+    }
+    public function editClient()
+    {
+        // Code pour récupérer tous les livres
+    }
+    public function deleteClient()
+    {
+        // Code pour récupérer tous les livres
+    }
 }
 //Pas de code ici

@@ -14,7 +14,7 @@ class Loan
     // Properties
     public int $id;
     public int $client_id;
-    public int $book_id;
+    public int $Loan_id;
     public DateTime $start_date;
     public DateTime $end_date;
     public bool $returned;
@@ -23,7 +23,7 @@ class Loan
     public function __construct(
         int $id,
         int $client_id,
-        int $book_id,
+        int $Loan_id,
         DateTime $start_date,
         DateTime $end_date,
         bool $returned
@@ -31,7 +31,7 @@ class Loan
     {
         $this->id = $id;
         $this->client_id = $client_id;
-        $this->book_id = $book_id;
+        $this->Loan_id = $Loan_id;
         $this->start_date = $start_date;
         $this->end_date = $end_date;
         $this->returned = $returned;
@@ -60,13 +60,13 @@ class Loan
         return $this;
     }
 
-    public function getBookId()
+    public function getLoanId()
     {
-        return $this->book_id;
+        return $this->Loan_id;
     }
-    public function setBookId($book_id)
+    public function setLoanId($Loan_id)
     {
-        $this->book_id = $book_id;
+        $this->Loan_id = $Loan_id;
 
         return $this;
     }
@@ -102,6 +102,28 @@ class Loan
         $this->returned = $returned;
 
         return $this;
+    }
+
+    // Methods
+    public function getAllLoans()
+    {
+        // Code pour récupérer tous les livres
+    }
+    public function getOneLoan()
+    {
+        // Code pour récupérer tous les livres
+    }
+    public function addLoan()
+    {
+        // Code pour récupérer tous les livres
+    }
+    public function editLoan()
+    {
+        // Code pour récupérer tous les livres
+    }
+    public function deleteLoan()
+    {
+        // Code pour récupérer tous les livres
     }
 }
 //Pas de code ici

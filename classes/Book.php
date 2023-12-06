@@ -95,5 +95,33 @@ class Book
 
         return $this;
     }
+
+    // Methods
+    public function getAllBooks()
+    {
+        // Code pour récupérer tous les livres
+    }
+    public function getOneBook()
+    {
+        // Code pour récupérer tous les livres
+    }
+    public function addBook()
+    {
+        // Code pour récupérer tous les livres
+    }
+    public function editBook()
+    {
+        // Code pour récupérer tous les livres
+    }
+    public function deleteBook()
+    {
+        // Code pour récupérer tous les livres
+    }
+
+
+
+
+
+
 }
 // Code interdit après l'accolade

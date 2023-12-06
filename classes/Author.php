@@ -59,5 +59,27 @@ class Author
 
         return $this;
     }
+
+    // Methods
+    public function getAllAuthors() // Read
+    {
+        // Code pour récupérer tous les livres
+    }
+    public function getOneAuthor() // Read
+    {
+        // Code pour récupérer tous les livres
+    }
+    public function addAuthor() // Create
+    {
+        // Code pour récupérer tous les livres
+    }
+    public function editAuthor() // Update
+    {
+        // Code pour récupérer tous les livres
+    }
+    public function deleteAuthor() // Delete
+    {
+        // Code pour récupérer tous les livres
+    }
 }
 //Pas de code ici

@@ -46,5 +46,27 @@ class Publisher
 
         return $this;
     }
+
+    // Methods
+    public function getAllPublishers()
+    {
+        // Code
+    }
+    public function getOnePublisher()
+    {
+        // Code
+    }
+    public function addPublisher()
+    {
+        // Code
+    }
+    public function editPublisher()
+    {
+        // Code
+    }
+    public function deletePublisher()
+    {
+        // Code
+    }
 }
 //Pas de code ici
