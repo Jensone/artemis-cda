@@ -1,5 +1,7 @@
 <?php
 
+include __DIR__ . '/templates/header.php';
+
 // Connection à la base de données
 $pdo = new PDO(
     'mysql:host=localhost;dbname=artemis;charset=utf8mb4', 
@@ -128,3 +130,5 @@ for ($i = 0; $i < 50; $i++) {
 }
 
 echo "Données fictives insérées avec succès.";
+
+include __DIR__ . '/templates/footer.php';

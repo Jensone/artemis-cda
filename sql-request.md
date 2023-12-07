@@ -60,3 +60,32 @@ JOIN
 WHERE
     Loan.id = 1;
 ```
+
+## Mise à jour d'un élément
+
+```sql
+UPDATE Book SET title = 'Nouveau titre' WHERE id = 1;
+```
+MAJ multiple de plusieurs champs
+
+```sql
+UPDATE Book SET title = 'Nouveau titre', description = 'Nouvelle description' WHERE id = 1;
+```
+
+## Suppression d'un élément
+
+```sql
+DELETE FROM Book WHERE id = 1;
+```
+
+## Création d'un élément
+
+```sql
+INSERT INTO Book (title, description, ISBN, author_id, publisher_id) VALUES ('Titre', 'Description', 'ISBN', 1, 1);
+INSERT INTO Author (name, bio) VALUES ('Nom', 'Bio');
+INSERT INTO Publisher (name) VALUES ('Nom');
+INSERT INTO Client (name, email, deposit) VALUES ('Nom', 'Email', 0);
+INSERT INTO Loan (client_id, book_id, start_date, end_date, returned) VALUES (1, 1, '2020-01-01', '2020-01-01', 0);
+```
+
+Voici l'ensemble des requêtes SQL pour l'app Artemis. Il s'agit des opération CRUD (Create, Read, Update, Delete) fondamentales pour une application.
