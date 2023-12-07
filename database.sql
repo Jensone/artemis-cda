@@ -1,19 +1,19 @@
 -- Création de la table Author
 CREATE TABLE Author (
-    id INT PRIMARY KEY,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     bio TEXT
 );
 
 -- Création de la table Publisher
 CREATE TABLE Publisher (
-    id INT PRIMARY KEY,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL
 );
 
 -- Création de la table Book
 CREATE TABLE Book (
-    id INT PRIMARY KEY,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
     description VARCHAR(255),
     ISBN VARCHAR(20) NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE Book (
 
 -- Création de la table Client 
 CREATE TABLE Client (
-	id INT PRIMARY KEY,
+	id INT PRIMARY KEY AUTO_INCREMENT,
 	name VARCHAR(255) NOT NULL,
 	email VARCHAR(255) NOT NULL,
 	deposit INT
@@ -33,7 +33,7 @@ CREATE TABLE Client (
 
 -- Création de la table Loan
 CREATE TABLE Loan (
-    id INT PRIMARY KEY,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     client_id INT,
     book_id INT,
     start_date DATE,
