@@ -31,15 +31,17 @@ $last = array_reverse($books);
     <?php
     for ($i = 0; $i < 3; $i++) {
         echo '
-        <div class="p-6 mb-4 bg-white rounded shadow">
-            <div class="flex justify-between items-center mb-6">
-                <span class="inline-block py-1 px-2 bg-blue-50 text-xs text-blue-500 rounded-full">' . $last[$i]['author_id'] . '</span>
+        <a href="book.php?id=' . $last[$i]['id'] . '">
+            <div class="p-6 mb-4 bg-white rounded shadow">
+                <div class="flex justify-between items-center mb-6">
+                    <span class="inline-block py-1 px-2 bg-blue-50 text-xs text-blue-500 rounded-full">n°' . $last[$i]['id'] . '</span>
+                </div>
+                <div class="mb-4">
+                    <h3 class="mb-2 font-medium">' . $last[$i]['title'] . '</h3>
+                    <p class="text-sm text-gray-500">' . $last[$i]['description'] . '</p>
+                </div>
             </div>
-            <div class="mb-4">
-                <h3 class="mb-2 font-medium">' . $last[$i]['title'] . '</h3>
-                <p class="text-sm text-gray-500">' . $last[$i]['description'] . '</p>
-            </div>
-        </div>
+        </a>
         ';
     }
     ?>

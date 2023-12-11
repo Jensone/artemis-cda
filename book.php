@@ -7,7 +7,7 @@ require_once __DIR__ . '/src/entity/Book.php';
 
 use Artemis\Book;
 
-$book = Book::getOneBook(210);
+$book = Book::getOneBook($_GET['id']);
 
 include __DIR__ . '/templates/header.php';
 
