@@ -4,7 +4,9 @@ require_once __DIR__ . '/../../src/controller/Database.php';
 
 use Artemis\Database;
 
-$last = array_reverse(Database::getAll('Book'));
+$books= Database::getAll('Book');
+
+$last = array_reverse($books);
 
 ?>
 
