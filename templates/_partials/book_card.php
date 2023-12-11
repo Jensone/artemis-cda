@@ -9,7 +9,7 @@
                 <h3 class="text-sm font-medium"><?= $book['BookTitle'] ?? 'Undefined' ?></h3>
                 <span class="text-xs text-gray-500"><?= $book['PublisherName'] ?? 'Undefined' ?></span>
                 <p>
-                    <span class="text-xs text-gray-500"><?= $book['BookTitle'] ?? 'Undefined' ?></span>
+                    <span class="text-xs text-gray-500"><?= $book['AuthorName'] ?? 'Undefined' ?></span>
                 </p>
             </div>
             <button class="ml-auto p-2 bg-indigo-50 rounded">

@@ -100,6 +100,27 @@ class Book
         return $this;
     }
 
+    static public function searchBooks($keyword)
+    {
+        $pdo = Database::getPDO();
+        $query = "SELECT
+                    Book.id AS BookId,
+                    Book.title AS BookTitle,
+                    Book.description AS BookDescription,
+                    Book.isbn AS BookIsbn,
+                    Author.name AS AuthorName,
+                    Publisher.name AS PublisherName
+                FROM Book JOIN Author ON Book.author_id = Author.id
+                JOIN Publisher ON Book.publisher_id = Publisher.id
+                WHERE Book.title LIKE '%$keyword%'
+                ORDER BY Book.title ASC;
+                ";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute();
+        $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $books;
+    }
+
     static public function getAllBooks()
     {
         $pdo = Database::getPDO();
