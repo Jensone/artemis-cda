@@ -11,26 +11,27 @@ Artemis est destiné aux bibliothèques de petite et moyenne taille.
 ## Fonctionnalités
 
 - Gestion des livres
-  - Ajout
-  - Modification
-  - Suppression
-  - Recherche
-  - Affichage
+  - [x] Affichage
+  - [ ] Ajout
+  - [ ] Modification
+  - [ ] Suppression
+  - [ ] Recherche
 - Gestion des auteurs
-  - Ajout
-  - Modification
-  - Suppression
-  - Affichage
+  - [ ] Affichage
+  - [ ] Ajout
+  - [ ] Modification
+  - [ ] Suppression
 - Gestion des emprunts
-  - Ajout
-  - Modification
-  - Suppression
+  - [ ] Affichage
+  - [ ] Ajout
+  - [ ] Modification
+  - [ ] Suppression
 - Gestion des clients
-  - Ajout
-  - Modification
-  - Suppression
-  - Recherche
-  - Affichage
+  - [ ] Affichage
+  - [ ] Ajout
+  - [ ] Modification
+  - [ ] Suppression
+  - [ ] Recherche
 
 L'ensembles des fonctionnalités repose sur les opérations fondamentales de la base de données (CRUD).
 
