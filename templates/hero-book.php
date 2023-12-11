@@ -5,11 +5,11 @@
                 <div class="w-full md:w-1/2 px-6 md:pl-12 lg:pr-0 mb-10 md:mb-0">
                     <h3 class="mb-2 text-6xl font-medium text-white">
                         <span>
-                            <?= !empty($book['BookTitle']) ? : 'Undefined' ?>
+                            <?= !empty($book['BookTitle']) ? $book['BookTitle'] : 'Undefined' ?>
                         </span>
                     </h3>
                     <p class="text-xl font-medium text-blue-100">
-                        <?= !empty($book['BookAuthor']) ? : 'Undefined' ?>
+                        <?= !empty($book['AuthorName']) ? $book['AuthorName'] : 'Undefined' ?>
                     </p>
                 </div>
                 <div class="relative w-full md:w-1/2 px-12">
