@@ -9,7 +9,6 @@ use Artemis\Loan;
 $loans = Loan::getAllLoans();
 
 $today = date("Y-m-d");
-
 $inProgress = []; // Le livre est en cours d'emprunt
 $endSoon = []; // Le livre a dépassé la date de retour
 $isBack = []; // Le livre est rendu à la bibliothèque
