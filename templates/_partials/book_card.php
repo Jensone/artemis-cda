@@ -6,10 +6,10 @@
         </div>
         <div class="flex mb-6 justify-between items-center">
             <div>
-                <h3 class="text-sm font-medium"><?= !empty($book['BookTitle']) ? $book['BookTitle'] : 'Undefined' ?></h3>
-                <span class="text-xs text-gray-500"><?= !empty($book['PublisherName']) ? $book['PublisherName'] : 'Undefined' ?></span>
+                <h3 class="text-sm font-medium"><?= $book['BookTitle'] ?? 'Undefined' ?></h3>
+                <span class="text-xs text-gray-500"><?= $book['PublisherName'] ?? 'Undefined' ?></span>
                 <p>
-                    <span class="text-xs text-gray-500"><?= !empty($book['BookTitle']) ? $book['BookTitle'] : 'Undefined' ?></span>
+                    <span class="text-xs text-gray-500"><?= $book['BookTitle'] ?? 'Undefined' ?></span>
                 </p>
             </div>
             <button class="ml-auto p-2 bg-indigo-50 rounded">
@@ -23,7 +23,7 @@
         <div class="flex items-ceenter justify-between border-t border-gray-50 pt-4">
             <a 
                 class="py-2 px-3 bg-indigo-500 hover:bg-indigo-600 rounded text-xs text-white transition duration-200" 
-                href="book.php?<?= !empty($book['BookId']) ? $book['BookId'] : 'Undefined' ?>">See Details</a>
+                href="book.php?id=<?= $book['BookId'] ?? 'Undefined' ?>">See Details</a>
         </div>
     </div>
 </div>

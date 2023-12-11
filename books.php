@@ -4,19 +4,27 @@ namespace Artemis;
 require_once __DIR__ . '/src/entity/Book.php';
 use Artemis\Book;
 
+$books = Book::getAllBooks();
+
 include __DIR__ . '/templates/header.php';
 
 ?>
 
-<div class="mx-auto lg:ml-80">
-    <section class="py-8">
-        <div class="container px-4 mx-auto">
-            <div class="flex flex-wrap -m-4">
-                TEST
-            </div>
+<section class="py-8">
+    <div class="container px-4 mx-auto">
+        <div class="flex flex-wrap -m-4">
+            <?php 
+                if (!empty($books)) {
+                    foreach ($books as $book) {
+                        include __DIR__ . '/templates/_partials/book_card.php';
+                    }
+                } else {
+                    echo '<p class="text-center">No books found.</p>';
+                }
+            ?>
         </div>
-    </section>
-</div>
+    </div>
+</section>
 
 <?php
 
