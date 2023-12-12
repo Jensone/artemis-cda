@@ -69,8 +69,8 @@ include __DIR__ . '/templates/hero-book.php';
     </div>
 
     <div class="my-6 flex items-center justify-start gap-x-6">
-        <button type="button" onclick="showModal()" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Mettre à jour</button>
-        <button type="button" onclick="showModal()" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Supprimer</button>
+        <button type="button" onclick="showModal('delete')" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Mettre à jour</button>
+        <button type="button" onclick="showModal('delete')" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Supprimer</button>
     </div>
 
 
@@ -108,17 +108,8 @@ include __DIR__ . '/templates/hero-book.php';
     </div>
 </div>
 
-<script>
-    function showModal() {
-        document.getElementById('modal').classList.remove('hidden')
-    }
-
-    function hideModel() {
-        document.getElementById('modal').classList.add('hidden')
-    }
-</script>
-
-
 <?php
+
+include __DIR__ . '/templates/_partials/modal_delete.php';
 
 include __DIR__ . '/templates/footer.php';
