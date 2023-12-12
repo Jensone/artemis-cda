@@ -164,12 +164,16 @@ class Book
         $author_id,
         $publisher_id
     ) {
+
+        // Objectif : Ajouter un livre dans la base de données
         // Formulaire [X]
         // Traiter les données et Instance de la classe (objet Book) [X]
         // Préparation pour la persistance [X]
-        // Connexion + Query [X]
-        // Data binding (faire correspondre les valeurs reçues avec les paramètres de la requête) [X]
-        // Prepare + Execute [X]
+            // Connexion + Query [X]
+            // Prepare [X]
+            // BindParam du statement [X]
+            // Execute [X]
+            // Redirection HTTP [X]
 
         $pdo = Database::getPDO();
         $query = "INSERT INTO Book (
@@ -188,7 +192,6 @@ class Book
 
         $stmt->execute();
 
-        // Redirection HTTP
         $url = 'index.php?message=addbook';
         header("Location: $url");
     }

@@ -12,7 +12,7 @@ Artemis est destiné aux bibliothèques de petite et moyenne taille.
 
 - Gestion des livres
   - [x] Affichage
-  - [ ] Ajout
+  - [x] Ajout
   - [ ] Modification
   - [ ] Suppression
   - [x] Recherche
