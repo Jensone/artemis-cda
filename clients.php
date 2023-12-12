@@ -29,7 +29,7 @@ include __DIR__ . '/templates/hero-loans.php';
                         <tr class="text-xs bg-gray-50">
                             <td class="py-5 px-6 font-medium"><?= $client['id'] ?></td>
                             <td class="flex px-4 py-3">
-                                <img class="w-8 h-8 mr-4 object-cover rounded-md" src="https://via.placeholder.com/400" alt="">
+                                <img class="w-8 h-8 mr-4 object-cover rounded-md" src="https://placehold.co/400x400/216be9/FFF?text=<?= substr($client['name'], 0, 1) ?>" alt="">
                                 <div>
                                     <p class="font-medium"><?= $client['name'] ?></p>
                                     <p class="text-gray-500"><?= $client['email'] ?></p>
