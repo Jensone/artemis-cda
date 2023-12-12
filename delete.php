@@ -14,4 +14,5 @@ if (!empty($_POST['id'])) {
   } else {
     Database::delete($_POST['type'], $_POST['id']);
   }
+  header('Location: index.php');
 }

@@ -157,6 +157,7 @@ class Book
     {
         $pdo = Database::getPDO();
         $query = "SELECT
+                    Book.id AS BookId,
                     Book.title AS BookTitle,
                     Book.description AS BookDescription,
                     Book.isbn AS BookIsbn,
