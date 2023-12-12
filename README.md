@@ -2,7 +2,7 @@
 
 ## Description
 
-Artemis est une solution numérique de gestion de bibliothèque. Elle permet de gérer les livres, les auteurs, les emprunts et les clients d'une bibliothèque.
+Artemis est une solution numérique de gestion de bibliothèque. Elle permet de gérer les livres, les auteurs, les emprunts et les clients d'une bibliothèque. Projet d'apprentissage pour mes étudiant(e)s CDA.
 
 ## Cible
 
@@ -14,24 +14,22 @@ Artemis est destiné aux bibliothèques de petite et moyenne taille.
   - [x] Affichage
   - [x] Ajout
   - [ ] Modification
-  - [ ] Suppression
+  - [x] Suppression
   - [x] Recherche
 - Gestion des auteurs
   - [ ] Affichage
   - [ ] Ajout
   - [ ] Modification
-  - [ ] Suppression
 - Gestion des emprunts
-  - [ ] Affichage
+  - [x] Affichage
   - [ ] Ajout
   - [ ] Modification
-  - [ ] Suppression
+  - [x] Suppression
 - Gestion des clients
-  - [ ] Affichage
+  - [x] Affichage
   - [ ] Ajout
   - [ ] Modification
-  - [ ] Suppression
-  - [ ] Recherche
+  - [x] Suppression
 
 L'ensembles des fonctionnalités repose sur les opérations fondamentales de la base de données (CRUD).
 
