@@ -13,6 +13,8 @@ $pdo = new PDO(
     'mba-m2', 
     '');
 
+$pdo->query("CREATE DATABASE IF NOT EXISTS artemis");
+
 // Suppression de toutes les tables
 $pdo->query("SET FOREIGN_KEY_CHECKS = 0");
 $pdo->query("DROP TABLE IF EXISTS Loan");
