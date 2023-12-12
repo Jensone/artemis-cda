@@ -192,7 +192,7 @@ class Book
 
         $stmt->execute();
 
-        $url = 'index.php?message=addbook';
+        $url = 'index.php?message=add';
         header("Location: $url");
     }
 
@@ -208,9 +208,6 @@ class Book
         $query = "DELETE FROM Book WHERE id = $id;";
         $stmt = $pdo->prepare($query);
         $stmt->execute();
-
-        $url = 'index.php';
-        header("Location: $url");
 
     }
 }
