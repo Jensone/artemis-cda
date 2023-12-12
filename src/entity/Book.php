@@ -202,9 +202,16 @@ class Book
     {
         // Code
     }
-    public function deleteBook()
+    static public function deleteBook($id)
     {
-        // Code
+        $pdo = Database::getPDO();
+        $query = "DELETE FROM Book WHERE id = $id;";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute();
+
+        $url = 'index.php';
+        header("Location: $url");
+
     }
 }
 // Code interdit après l'accolade
