@@ -10,8 +10,8 @@ $publishers = Database::getAll('Publisher');
 
 
 if(isset($_POST['submit'])) {
-    
-    $book = new Book(
+
+    Book::addBook(
         $_POST['title'],
         $_POST['description'],
         $_POST['isbn'],
@@ -19,8 +19,6 @@ if(isset($_POST['submit'])) {
         $_POST['publisher']
     );
 
-    var_dump($book);
-    die();
 }
 
 include __DIR__ . '/templates/header.php';

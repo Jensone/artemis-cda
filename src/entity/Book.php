@@ -7,7 +7,7 @@
 
 namespace Artemis;
 
-require __DIR__ . '/../controller/Database.php';
+require_once __DIR__ . '/../controller/Database.php';
 
 use PDO;
 use Artemis\Database;
@@ -24,14 +24,12 @@ class Book
 
     // Constructor
     public function __construct(
-        int $id,
         string $title,
         string $description,
         string $ISBN,
         int $author_id,
         int $publisher_id
     ) {
-        $this->id = $id;
         $this->title = $title;
         $this->description = $description;
         $this->ISBN = $ISBN;
@@ -159,10 +157,44 @@ class Book
         $book = $stmt->fetch(PDO::FETCH_ASSOC);
         return $book;
     }
-    static public function addBook()
-    {
-        // Code
+    static public function addBook(
+        $title,
+        $description,
+        $ISBN,
+        $author_id,
+        $publisher_id
+    ) {
+        // Formulaire [X]
+        // Traiter les données et Instance de la classe (objet Book) [X]
+        // Préparation pour la persistance [X]
+        // Connexion + Query [X]
+        // Data binding (faire correspondre les valeurs reçues avec les paramètres de la requête) [X]
+        // Prepare + Execute [X]
+
+        $pdo = Database::getPDO();
+        $query = "INSERT INTO Book (
+                title, description, ISBN, author_id, publisher_id
+                ) VALUES (
+                    :title, :description, :ISBN, :author_id, :publisher_id
+                );";
+
+        $stmt = $pdo->prepare($query);
+        
+        $stmt->bindParam(':title', $title, PDO::PARAM_STR);
+        $stmt->bindParam(':description', $description, PDO::PARAM_STR);
+        $stmt->bindParam(':ISBN', $ISBN, PDO::PARAM_STR);
+        $stmt->bindParam(':author_id', $author_id, PDO::PARAM_INT);
+        $stmt->bindParam(':publisher_id', $publisher_id, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        // Redirection HTTP
+        $url = 'index.php?message=addbook';
+        header("Location: $url");
     }
+
+
+
     public function editBook()
     {
         // Code
