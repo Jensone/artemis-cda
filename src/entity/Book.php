@@ -206,9 +206,28 @@ class Book
 
 
 
-    public function editBook()
+    public function editBook(int $id)
     {
-        // Code
+        $pdo = Database::getPDO();
+        $query = "UPDATE Book 
+                SET title = :title, 
+                description = :description, 
+                ISBN = :ISBN, 
+                author_id = :author_id, 
+                publisher_id = :publisher_id 
+                WHERE id = $id;
+                ";
+
+
+        $stmt = $pdo->prepare($query);
+        
+        $stmt->bindParam(':title', $this->getTitle(), PDO::PARAM_STR);
+        $stmt->bindParam(':description', $this->getDescription(), PDO::PARAM_STR);
+        $stmt->bindParam(':ISBN', $this->getISBN(), PDO::PARAM_STR);
+        $stmt->bindParam(':author_id', $this->getAuthor_id(), PDO::PARAM_INT);
+        $stmt->bindParam(':publisher_id', $this->getPublisher_id(), PDO::PARAM_INT);
+
+        $stmt->execute();
     }
 
 }
