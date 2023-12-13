@@ -13,7 +13,7 @@ Artemis est destiné aux bibliothèques de petite et moyenne taille.
 - Gestion des livres
   - [x] Affichage
   - [x] Ajout
-  - [ ] Modification
+  - [x] Modification
   - [x] Suppression
   - [x] Recherche
 - Gestion des auteurs
@@ -43,3 +43,27 @@ L'architecture de l'application est inspirée sur le modèle MVC et utilise la p
 
 Joindre les hero section en une
 Afficher un livre sur la page books
+
+## Suivi de la factorisation
+
+- [x] index.php
+- [x] book.php
+- [x] clients.php
+- [x] books.php 
+- [x] loans.php
+- [x] add.php
+- [x] edit.php 
+- [] delete.php
+- [x] /templates
+- [] last.php
+- [] 
+- [] 
+- [] 
+- [] 
+- [] 
+- [] 
+- [] 
+- [] 
+- [] 
+- [] 
+- [] 

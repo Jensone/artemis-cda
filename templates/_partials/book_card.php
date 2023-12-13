@@ -2,7 +2,6 @@
     <div class="p-4 bg-white rounded">
         <div class="relative h-40 w-full mb-4">
             <img class="w-full h-full object-cover rounded" src="/artemis-assets/images/artemis-book-defaut.png" alt="">
-            <!-- <span class="absolute top-0 right-0 py-1 px-2 mt-2 mr-2 bg-indigo-500 rounded text-xs text-white">14 Tasks</span> -->
         </div>
         <div class="flex mb-6 justify-between items-center">
             <div>

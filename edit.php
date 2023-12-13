@@ -15,5 +15,5 @@ if (!empty($_POST['title'])) {
     $_POST['publisher']
   );
   $book->editBook($_POST['id']);
-  header('Location: index.php');
+  header('Location: book.php?id=' . $_POST['id']);
 }

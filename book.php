@@ -4,9 +4,16 @@ namespace Artemis;
 
 require_once __DIR__ . '/src/entity/Book.php';
 
+
 use Artemis\Book;
 
+if (!isset($_GET['id'])) {
+    header('Location: books.php');
+    exit;
+}
 $book = Book::getOneBook($_GET['id']);
+
+$pageTitle = $book['BookTitle'];
 
 include __DIR__ . '/templates/header.php';
 
