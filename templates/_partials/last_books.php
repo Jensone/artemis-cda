@@ -38,7 +38,7 @@ $last = array_reverse($books);
                 </div>
                 <div class="mb-4">
                     <h3 class="mb-2 font-medium">' . $last[$i]['title'] . '</h3>
-                    <p class="text-sm text-gray-500">' . $last[$i]['author_id'] . '</p>
+                    <p class="text-sm text-gray-500">' . $last[$i]['description'] . '</p>
                 </div>
             </div>
         </a>

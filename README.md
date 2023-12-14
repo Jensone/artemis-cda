@@ -1,4 +1,4 @@
-# Artemis - Application de gestion de bibliothèque
+# Artemis - TP Application de gestion de bibliothèque
 
 ## Description
 
@@ -8,62 +8,44 @@ Artemis est une solution numérique de gestion de bibliothèque. Elle permet de 
 
 Artemis est destiné aux bibliothèques de petite et moyenne taille.
 
-## Fonctionnalités
+## Votre rôle
 
-- Gestion des livres
-  - [x] Affichage
-  - [x] Ajout
-  - [x] Modification
-  - [x] Suppression
-  - [x] Recherche
-- Gestion des auteurs
-  - [ ] Affichage
-  - [ ] Ajout
-  - [ ] Modification
-- Gestion des emprunts
-  - [x] Affichage
-  - [ ] Ajout
-  - [ ] Modification
-  - [x] Suppression
-- Gestion des clients
-  - [x] Affichage
-  - [ ] Ajout
-  - [ ] Modification
-  - [x] Suppression
+Vous êtes dev dans une TPE qui développe des solutions numériques pour les bibliothèques. Vous êtes en charge de la conception et du développement de fonctionnalités pour ces mêmes applications. Artemis est un SAAS (Software As A Service) en construction qui sera commercialisé mi-2024.
 
-L'ensembles des fonctionnalités repose sur les opérations fondamentales de la base de données (CRUD).
+---
 
-## Technologies
+## Vos missions
 
-Artemis est une application web développée en PHP et la base de données en SQL.
-L'architecture de l'application est inspirée sur le modèle MVC et utilise la programmation orientée objet.
+Vous devez concevoir et développer les fonctionnalités suivantes :
 
+#### Barre de recherche de livres
 
-## Axes d'amélioration
+![Alt text](/artemis-assets/images/search.png?raw=true)
 
-Joindre les hero section en une
-Afficher un livre sur la page books
+La barre de recherche doit permettre de rechercher un livre par son titre, la fonctionnalité et la page de résultat sont déjà codées, il faut juste l'intégrer dans la barrre de recherche.
 
-## Suivi de la factorisation
+---
 
-- [x] index.php
-- [x] book.php
-- [x] clients.php
-- [x] books.php 
-- [x] loans.php
-- [x] add.php
-- [x] edit.php 
-- [] delete.php
-- [x] /templates
-- [] last.php
-- [] 
-- [] 
-- [] 
-- [] 
-- [] 
-- [] 
-- [] 
-- [] 
-- [] 
-- [] 
-- [] 
+#### Mise à jour des données d'un client
+
+![Alt text](/artemis-assets/images/edit.png?raw=true)
+
+La mise à jour des données d'un client doit permettre de modifier les données via un formulaire. Créez un formulaire avec les information nécessaires à la mise à jour des données pour chaque client (dans la boucle `foreach`).
+
+---
+
+#### Suppression d'un client
+
+La suppression d'un client doit permettre de supprimer un client de la base de données. Utilisez le bouton avec l'icône corbeille pour supprimer un client.
+
+---
+
+#### Gestion des emprunts
+
+![Alt text](/artemis-assets/images/borrow.png?raw=true)
+
+Ajoutez un bouton "Rendu" sur les cartes des livres qui n'ont pas encore été rendus pour permettre de rendre le livre.
+
+Uniquement les livres rendus ont un bouton "Archiver". Il ne peut il y avoir q'un bouton pour chaque carte.
+
+Développez la fonctionnalité de rendu d'un livre, ainsi que la fonctionnalité d'archivage d'un livre.
