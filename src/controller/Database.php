@@ -13,9 +13,9 @@ use PDOException;
 class Database
 {
     private static $host = 'localhost';
-    private static $dbname = 'artemis';
-    private static $username = 'mba-m2';
-    private static $password = '';
+    private static $dbname = 'u237487156_artemis';
+    private static $username = 'u237487156_artemis';
+    private static $password = '}6^!M]Fi6aZi';
     private static $charset = 'utf8mb4';
     private static $pdo;
 
