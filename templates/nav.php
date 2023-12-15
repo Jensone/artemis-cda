@@ -1,17 +1,17 @@
-<?php 
+<?php
 
 $currentUrl = $_SERVER['PHP_SELF'];
 $pageName = pathinfo($currentUrl, PATHINFO_FILENAME);
 
 $menuItems = [
-    'index'=> '',
-    'clients'=> '',
-    'books'=> '',
-    'loans'=> '',
+    'index' => '',
+    'clients' => '',
+    'books' => '',
+    'loans' => '',
 ];
 
-if(!empty($pageName)){
-    if($pageName == 'index') {
+if (!empty($pageName)) {
+    if ($pageName == 'index') {
         $menuItems['index'] = 'bg-indigo-500';
     } elseif ($pageName == 'clients') {
         $menuItems['clients'] = 'bg-indigo-500';
@@ -46,6 +46,9 @@ if(!empty($pageName)){
                 </a>
             </div>
             <div class="px-4 pb-6">
+                <form action="books.php" method="GET" class="mb-4">
+                    <input type="text" name="s" class="block w-full px-2 py-1.5 bg-gray-900 text-sm text-white border border-gray-700 rounded-lg px-3 py-2 leading-tight focus:outline-none focus:border-gray-500" placeholder="Rechercher un livre">
+                </form>
                 <h3 class="mb-2 text-xs uppercase text-gray-500 font-medium">Main</h3>
                 <ul class="mb-8 text-sm font-medium">
                     <li>

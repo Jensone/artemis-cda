@@ -22,7 +22,7 @@
         <div class="flex items-ceenter justify-between border-t border-gray-50 pt-4">
             <a 
                 class="py-2 px-3 bg-indigo-500 hover:bg-indigo-600 rounded text-xs text-white transition duration-200" 
-                href="book.php?id=<?= $book['BookId'] ?? 'Undefined' ?>">See Details</a>
+                href="book.php?id=<?= $book['BookId'] ?? 'Undefined' ?>">Voir</a>
         </div>
     </div>
 </div>

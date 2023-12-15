@@ -7,6 +7,11 @@
 
 namespace Artemis;
 
+require_once __DIR__ . '/../controller/Database.php';
+
+use PDO;
+use Artemis\Database;
+
 class Client
 {
     // Properties
@@ -17,12 +22,10 @@ class Client
 
     // Constructor
     public function __construct(
-        int $id,
         string $name,
         string $email,
         string $deposit
     ) {
-        $this->id = $id;
         $this->name = $name;
         $this->email = $email;
         $this->deposit = $deposit;
@@ -72,25 +75,20 @@ class Client
     }
 
     // Methods
-    public function getAllClients()
-    {
-        // Code
-    }
-    public function getOneClient()
-    {
-        // Code
-    }
     public function addClient()
     {
         // Code
     }
-    public function editClient()
+    static public function editClient(int $id, string $name, string $email, bool $deposit)
     {
-        // Code
-    }
-    public function deleteClient()
-    {
-        // Code
+        $pdo = Database::getPDO();
+        $query = "UPDATE Client SET name = :name, email = :email, deposit = :deposit WHERE id = :id;";
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->bindParam(':deposit', $deposit, PDO::PARAM_BOOL);
+        $stmt->execute();
     }
 }
 //Pas de code ici
