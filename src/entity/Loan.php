@@ -7,7 +7,7 @@
 
 namespace Artemis;
 
-require __DIR__ . '/../controller/Database.php';
+require_once __DIR__ . '/../controller/Database.php';
 
 use PDO;
 use DateTime;
@@ -102,7 +102,7 @@ class Loan
     }
 
     // Methods
-    static public function getAllLoans()
+    static public function getAllLoans(): array
     {
         $pdo = Database::getPDO();
         $query = "SELECT
@@ -110,6 +110,7 @@ class Loan
                     Loan.start_date AS LoanStartDate,
                     Loan.end_date AS LoanEndDate,
                     Loan.returned AS LoanStatus,
+                    Loan.archived AS LoanArchive,
                     Client.name AS ClientName,
                     Book.title AS BookTitle
                 FROM Loan JOIN Client ON Loan.client_id = Client.id
@@ -121,17 +122,20 @@ class Loan
         return $Loans;
     }
 
-    public function addLoan()
+    static public function returnLoan($id): void
     {
-        // Code
+        $pdo = Database::getPDO();
+        $query = "UPDATE Loan SET returned = 1 WHERE id = $id";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute();
     }
-    public function editLoan()
+
+    static public function archiveLoan($id): void
     {
-        // Code
-    }
-    public function deleteLoan()
-    {
-        // Code
+        $pdo = Database::getPDO();
+        $query = "UPDATE Loan SET archived = 1 WHERE id = $id";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute();
     }
 }
 //Pas de code ici
