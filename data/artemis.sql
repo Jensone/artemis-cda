@@ -25,6 +25,22 @@ CREATE TABLE `Author` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=181 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;;
 
+DROP TABLE IF EXISTS `Publisher`;
+CREATE TABLE `Publisher` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;;
+
+DROP TABLE IF EXISTS `Client`;
+CREATE TABLE `Client` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `deposit` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;;
+
 DROP TABLE IF EXISTS `Book`;
 CREATE TABLE `Book` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -40,15 +56,6 @@ CREATE TABLE `Book` (
   CONSTRAINT `book_ibfk_2` FOREIGN KEY (`publisher_id`) REFERENCES `Publisher` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=201 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;;
 
-DROP TABLE IF EXISTS `Client`;
-CREATE TABLE `Client` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `deposit` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;;
-
 DROP TABLE IF EXISTS `Loan`;
 CREATE TABLE `Loan` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -63,13 +70,6 @@ CREATE TABLE `Loan` (
   KEY `book_id` (`book_id`),
   CONSTRAINT `loan_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `Client` (`id`),
   CONSTRAINT `loan_ibfk_2` FOREIGN KEY (`book_id`) REFERENCES `Book` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;;
-
-DROP TABLE IF EXISTS `Publisher`;
-CREATE TABLE `Publisher` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;;
 
 INSERT INTO `Author` (`id`, `name`, `bio`) VALUES
@@ -253,6 +253,111 @@ INSERT INTO `Author` (`id`, `name`, `bio`) VALUES
 (178, 'Étienne Gautier', 'Et provident laudantium maxime deleniti aut id. Libero atque quas magnam dolorem non quas. Provident sed quis praesentium cumque voluptatibus dolor. Cupiditate et mollitia assumenda vel corporis ut.'),
 (179, 'Zoé Jourdan', 'Fuga animi neque sunt voluptas a iste qui similique. Unde doloribus quia quam et esse.'),
 (180, 'Valentine Gimenez', 'Quaerat ratione sapiente animi laboriosam. Officia officia iusto fugiat neque et molestiae est. Voluptas suscipit optio omnis odio voluptas praesentium voluptate saepe.');
+
+INSERT INTO `Client` (`id`, `name`, `email`, `deposit`) VALUES
+(1, 'Dominique Gregoire', 'louis09@marchal.fr', 1),
+(2, 'Julie Marie-Marchal', 'veronique.charrier@baron.org', 1),
+(3, 'Cécile Perrier', 'jacques.vincent@laposte.net', 0),
+(4, 'Hélène Ollivier', 'valerie82@orange.fr', 1),
+(5, 'Colette Bailly', 'penelope06@renaud.fr', 0),
+(6, 'Colette Le Goff', 'wpascal@tele2.fr', 0),
+(7, 'Nicolas Julien', 'rgrondin@hotmail.fr', 0),
+(8, 'Christine Joseph', 'htexier@tele2.fr', 1),
+(9, 'Théophile du Besson', 'tgilbert@dasilva.com', 1),
+(10, 'Victoire Henry', 'lemaire.bertrand@noos.fr', 1),
+(11, 'Philippe Lenoir', 'leveque.marcel@lemaire.fr', 1),
+(12, 'Gabriel Leger', 'laurence.pruvost@orange.fr', 1),
+(13, 'François Chevalier-Andre', 'stephanie.dufour@bourdon.fr', 1),
+(14, 'Maggie-Patricia Marchand', 'francois.alain@mendes.org', 1),
+(15, 'Amélie Gimenez', 'astrid75@club-internet.fr', 1),
+(16, 'Hortense-Charlotte Lelievre', 'girard.astrid@jacob.net', 0),
+(17, 'Alexandre Morin', 'david.torres@lenoir.fr', 0),
+(18, 'Arthur-Alfred Benoit', 'ggilles@hotmail.fr', 0),
+(19, 'Marcelle Charles', 'manon27@hotmail.fr', 1),
+(20, 'Adèle-Susanne Bouchet', 'diallo.timothee@merle.net', 0),
+(21, 'Benoît Vallee-Francois', 'alfred05@etienne.fr', 0),
+(22, 'Tristan Roy', 'xgilles@orange.fr', 1),
+(23, 'Clémence Lemonnier', 'uvalette@munoz.com', 0),
+(24, 'Gilles Maillard', 'grondin.roland@lebon.fr', 0),
+(25, 'Dominique Henry', 'pons.capucine@dbmail.com', 0),
+(26, 'Danielle Bouvet', 'cletellier@valentin.fr', 0),
+(27, 'Anastasie Leroux', 'louis.louise@live.com', 1),
+(28, 'Frédéric Delahaye', 'aime75@masson.net', 1),
+(29, 'Adrien Fischer-Potier', 'olivier.bourdon@renard.net', 1),
+(30, 'Nicolas Besnard', 'salmon.julie@noos.fr', 0),
+(31, 'Diane Fournier', 'celina02@millet.fr', 1),
+(32, 'Olivier Perez', 'raymond.hoareau@hotmail.fr', 1),
+(33, 'Nath Gilbert', 'nicolas10@laposte.net', 0),
+(34, 'Margot Maurice', 'paul.delattre@colas.fr', 1),
+(35, 'Alix Grenier', 'dmeunier@giraud.org', 1),
+(36, 'Maurice-Honoré Ribeiro', 'gros.edith@orange.fr', 1),
+(37, 'Élise Bonneau-Pineau', 'ididier@free.fr', 0),
+(38, 'Caroline du Vallet', 'odette91@club-internet.fr', 0),
+(39, 'Philippine Guichard-Garcia', 'denis.nicole@orange.fr', 0),
+(40, 'Isabelle Marchal', 'claude.lagarde@neveu.org', 0),
+(41, 'Sébastien Barbe', 'elise.auger@boulanger.fr', 0),
+(42, 'Christelle Le Gall-Rousseau', 'ferrand.hugues@free.fr', 0),
+(43, 'Marcel Descamps', 'moreno.margaux@live.com', 1),
+(44, 'Alexandre-Augustin Vincent', 'deschamps.hortense@legall.org', 1),
+(45, 'Laure Leduc-Lebon', 'begue.martine@thomas.com', 0),
+(46, 'Michelle Evrard', 'qtorres@club-internet.fr', 0),
+(47, 'Nathalie Le Muller', 'egirard@dbmail.com', 1),
+(48, 'Thibault Germain', 'guy.royer@gillet.fr', 0),
+(49, 'Alphonse-Bernard Letellier', 'maillet.edouard@mary.com', 0),
+(50, 'Julien-Rémy Lemaitre', 'adrien.barre@hotmail.fr', 0);
+
+INSERT INTO `Publisher` (`id`, `name`) VALUES
+(1, 'Pires'),
+(2, 'Weber Ferreira S.A.R.L.'),
+(3, 'Torres Duval SA'),
+(4, 'Lecomte'),
+(5, 'Leveque et Fils'),
+(6, 'Merle Diallo SAS'),
+(7, 'Vallee et Fils'),
+(8, 'Millet'),
+(9, 'Loiseau S.A.'),
+(10, 'Clerc'),
+(11, 'Gros et Fils'),
+(12, 'Leconte Roussel SARL'),
+(13, 'Rodriguez Raymond S.A.'),
+(14, 'Courtois Masse et Fils'),
+(15, 'Leconte'),
+(16, 'Morel SA'),
+(17, 'Voisin'),
+(18, 'Blot'),
+(19, 'Durand et Fils'),
+(20, 'Raymond S.A.S.'),
+(21, 'Gauthier'),
+(22, 'Roger Voisin SARL'),
+(23, 'Fischer S.A.'),
+(24, 'Hebert Navarro SARL'),
+(25, 'Pages'),
+(26, 'Sanchez et Fils'),
+(27, 'Evrard'),
+(28, 'Schneider S.A.'),
+(29, 'Brunel SARL'),
+(30, 'Tessier Diallo SA'),
+(31, 'Fournier'),
+(32, 'Diaz'),
+(33, 'Payet SA'),
+(34, 'Jean'),
+(35, 'Deschamps SAS'),
+(36, 'Collet'),
+(37, 'Sauvage'),
+(38, 'Letellier et Fils'),
+(39, 'Millet'),
+(40, 'Chretien'),
+(41, 'Royer Albert S.A.'),
+(42, 'Raynaud'),
+(43, 'Vallet S.A.S.'),
+(44, 'Merle et Fils'),
+(45, 'Teixeira'),
+(46, 'Camus S.A.'),
+(47, 'Levy S.A.S.'),
+(48, 'Picard Leleu S.A.S.'),
+(49, 'Hernandez'),
+(50, 'Delahaye Guillon S.A.R.L.');
+
 
 INSERT INTO `Book` (`id`, `title`, `description`, `ISBN`, `author_id`, `publisher_id`) VALUES
 (1, 'Veniam sit.', 'Quibusdam vero reprehenderit beatae quas sunt qui. In a eius ex aut corrupti excepturi. Beatae et sint error iusto quos molestiae quia.', '9788709224729', 4, 22),
@@ -456,58 +561,6 @@ INSERT INTO `Book` (`id`, `title`, `description`, `ISBN`, `author_id`, `publishe
 (199, 'Eveniet molestiae.', 'Ipsa quia expedita laborum. Hic sed in excepturi dolorum aliquam harum atque. Aut quisquam illo sit repellendus. Dolore voluptatem et omnis qui aut quisquam repellendus magnam.', '9793629001732', 43, 18),
 (200, 'Aut et.', 'Nesciunt qui odio quos labore. Illo velit ad velit sint molestias.', '9796300064231', 93, 30);
 
-INSERT INTO `Client` (`id`, `name`, `email`, `deposit`) VALUES
-(1, 'Dominique Gregoire', 'louis09@marchal.fr', 1),
-(2, 'Julie Marie-Marchal', 'veronique.charrier@baron.org', 1),
-(3, 'Cécile Perrier', 'jacques.vincent@laposte.net', 0),
-(4, 'Hélène Ollivier', 'valerie82@orange.fr', 1),
-(5, 'Colette Bailly', 'penelope06@renaud.fr', 0),
-(6, 'Colette Le Goff', 'wpascal@tele2.fr', 0),
-(7, 'Nicolas Julien', 'rgrondin@hotmail.fr', 0),
-(8, 'Christine Joseph', 'htexier@tele2.fr', 1),
-(9, 'Théophile du Besson', 'tgilbert@dasilva.com', 1),
-(10, 'Victoire Henry', 'lemaire.bertrand@noos.fr', 1),
-(11, 'Philippe Lenoir', 'leveque.marcel@lemaire.fr', 1),
-(12, 'Gabriel Leger', 'laurence.pruvost@orange.fr', 1),
-(13, 'François Chevalier-Andre', 'stephanie.dufour@bourdon.fr', 1),
-(14, 'Maggie-Patricia Marchand', 'francois.alain@mendes.org', 1),
-(15, 'Amélie Gimenez', 'astrid75@club-internet.fr', 1),
-(16, 'Hortense-Charlotte Lelievre', 'girard.astrid@jacob.net', 0),
-(17, 'Alexandre Morin', 'david.torres@lenoir.fr', 0),
-(18, 'Arthur-Alfred Benoit', 'ggilles@hotmail.fr', 0),
-(19, 'Marcelle Charles', 'manon27@hotmail.fr', 1),
-(20, 'Adèle-Susanne Bouchet', 'diallo.timothee@merle.net', 0),
-(21, 'Benoît Vallee-Francois', 'alfred05@etienne.fr', 0),
-(22, 'Tristan Roy', 'xgilles@orange.fr', 1),
-(23, 'Clémence Lemonnier', 'uvalette@munoz.com', 0),
-(24, 'Gilles Maillard', 'grondin.roland@lebon.fr', 0),
-(25, 'Dominique Henry', 'pons.capucine@dbmail.com', 0),
-(26, 'Danielle Bouvet', 'cletellier@valentin.fr', 0),
-(27, 'Anastasie Leroux', 'louis.louise@live.com', 1),
-(28, 'Frédéric Delahaye', 'aime75@masson.net', 1),
-(29, 'Adrien Fischer-Potier', 'olivier.bourdon@renard.net', 1),
-(30, 'Nicolas Besnard', 'salmon.julie@noos.fr', 0),
-(31, 'Diane Fournier', 'celina02@millet.fr', 1),
-(32, 'Olivier Perez', 'raymond.hoareau@hotmail.fr', 1),
-(33, 'Nath Gilbert', 'nicolas10@laposte.net', 0),
-(34, 'Margot Maurice', 'paul.delattre@colas.fr', 1),
-(35, 'Alix Grenier', 'dmeunier@giraud.org', 1),
-(36, 'Maurice-Honoré Ribeiro', 'gros.edith@orange.fr', 1),
-(37, 'Élise Bonneau-Pineau', 'ididier@free.fr', 0),
-(38, 'Caroline du Vallet', 'odette91@club-internet.fr', 0),
-(39, 'Philippine Guichard-Garcia', 'denis.nicole@orange.fr', 0),
-(40, 'Isabelle Marchal', 'claude.lagarde@neveu.org', 0),
-(41, 'Sébastien Barbe', 'elise.auger@boulanger.fr', 0),
-(42, 'Christelle Le Gall-Rousseau', 'ferrand.hugues@free.fr', 0),
-(43, 'Marcel Descamps', 'moreno.margaux@live.com', 1),
-(44, 'Alexandre-Augustin Vincent', 'deschamps.hortense@legall.org', 1),
-(45, 'Laure Leduc-Lebon', 'begue.martine@thomas.com', 0),
-(46, 'Michelle Evrard', 'qtorres@club-internet.fr', 0),
-(47, 'Nathalie Le Muller', 'egirard@dbmail.com', 1),
-(48, 'Thibault Germain', 'guy.royer@gillet.fr', 0),
-(49, 'Alphonse-Bernard Letellier', 'maillet.edouard@mary.com', 0),
-(50, 'Julien-Rémy Lemaitre', 'adrien.barre@hotmail.fr', 0);
-
 INSERT INTO `Loan` (`id`, `client_id`, `book_id`, `start_date`, `end_date`, `returned`, `archived`) VALUES
 (1, 40, 153, '2023-08-29', '2023-09-29', 0, 0),
 (2, 17, 29, '2023-09-27', '2023-10-27', 1, 0),
@@ -559,59 +612,6 @@ INSERT INTO `Loan` (`id`, `client_id`, `book_id`, `start_date`, `end_date`, `ret
 (48, 10, 196, '2023-02-02', '2023-03-02', 1, 1),
 (49, 45, 190, '2023-01-22', '2023-02-22', 1, 0),
 (50, 41, 63, '2023-01-16', '2023-02-16', 0, 0);
-
-INSERT INTO `Publisher` (`id`, `name`) VALUES
-(1, 'Pires'),
-(2, 'Weber Ferreira S.A.R.L.'),
-(3, 'Torres Duval SA'),
-(4, 'Lecomte'),
-(5, 'Leveque et Fils'),
-(6, 'Merle Diallo SAS'),
-(7, 'Vallee et Fils'),
-(8, 'Millet'),
-(9, 'Loiseau S.A.'),
-(10, 'Clerc'),
-(11, 'Gros et Fils'),
-(12, 'Leconte Roussel SARL'),
-(13, 'Rodriguez Raymond S.A.'),
-(14, 'Courtois Masse et Fils'),
-(15, 'Leconte'),
-(16, 'Morel SA'),
-(17, 'Voisin'),
-(18, 'Blot'),
-(19, 'Durand et Fils'),
-(20, 'Raymond S.A.S.'),
-(21, 'Gauthier'),
-(22, 'Roger Voisin SARL'),
-(23, 'Fischer S.A.'),
-(24, 'Hebert Navarro SARL'),
-(25, 'Pages'),
-(26, 'Sanchez et Fils'),
-(27, 'Evrard'),
-(28, 'Schneider S.A.'),
-(29, 'Brunel SARL'),
-(30, 'Tessier Diallo SA'),
-(31, 'Fournier'),
-(32, 'Diaz'),
-(33, 'Payet SA'),
-(34, 'Jean'),
-(35, 'Deschamps SAS'),
-(36, 'Collet'),
-(37, 'Sauvage'),
-(38, 'Letellier et Fils'),
-(39, 'Millet'),
-(40, 'Chretien'),
-(41, 'Royer Albert S.A.'),
-(42, 'Raynaud'),
-(43, 'Vallet S.A.S.'),
-(44, 'Merle et Fils'),
-(45, 'Teixeira'),
-(46, 'Camus S.A.'),
-(47, 'Levy S.A.S.'),
-(48, 'Picard Leleu S.A.S.'),
-(49, 'Hernandez'),
-(50, 'Delahaye Guillon S.A.R.L.');
-
 
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
