@@ -1,17 +1,17 @@
-<?php 
+<?php
 
 $currentUrl = $_SERVER['PHP_SELF'];
 $pageName = pathinfo($currentUrl, PATHINFO_FILENAME);
 
 $menuItems = [
-    'index'=> '',
-    'clients'=> '',
-    'books'=> '',
-    'loans'=> '',
+    'index' => '',
+    'clients' => '',
+    'books' => '',
+    'loans' => '',
 ];
 
-if(!empty($pageName)){
-    if($pageName == 'index') {
+if (!empty($pageName)) {
+    if ($pageName == 'index') {
         $menuItems['index'] = 'bg-indigo-500';
     } elseif ($pageName == 'clients') {
         $menuItems['clients'] = 'bg-indigo-500';
