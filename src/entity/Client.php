@@ -90,9 +90,5 @@ class Client
         $stmt->bindParam(':deposit', $deposit, PDO::PARAM_BOOL);
         $stmt->execute();
     }
-    public function deleteClient()
-    {
-        // Code
-    }
 }
 //Pas de code ici
