@@ -2,11 +2,17 @@
 
 namespace Artemis;
 
+require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/src/controller/Database.php';
 require_once __DIR__ . '/src/entity/Book.php';
 
-use Artemis\Database;
+use OpenAI;
 use Artemis\Book;
+use Artemis\Database;
+use Symfony\Component\Dotenv\Dotenv;
+
+$dotenv = new Dotenv();
+$dotenv->load(__DIR__ . '/.env', __DIR__ . '/.env.local');
 
 $authors = Database::getAll('Author');
 $publishers = Database::getAll('Publisher');
@@ -14,14 +20,30 @@ $publishers = Database::getAll('Publisher');
 
 if (isset($_POST['submit'])) {
 
-    Book::addBook(
-        $_POST['title'],
-        $_POST['description'],
-        $_POST['isbn'],
-        $_POST['author'],
-        $_POST['publisher']
-    );
+    if ($_POST['api']) {
+        $client = OpenAI::client($_ENV['OPENAI_SK']);
+
+        $result = $client->chat()->create([
+            'model' => 'gpt-3.5-turbo',
+            'messages' => [
+                ['role' => 'user', 'content' => 'Combien font 2 et 2 ?'],
+            ],
+        ]);
+
+        echo $result->choices[0]->message->content;
+        die();
+    } else {
+        Book::addBook(
+            $_POST['title'],
+            $_POST['description'],
+            $_POST['isbn'],
+            $_POST['author'],
+            $_POST['publisher']
+        );
+    }
 }
+
+
 
 include __DIR__ . '/templates/header.php';
 
@@ -53,8 +75,7 @@ include __DIR__ . '/templates/hero.php';
                     <div class="sm:col-span-4">
                         <label for="description" class="block text-sm font-medium leading-6 text-gray-900">Description</label>
                         <div class="mt-2">
-                            <textarea id="description" name="description" type="text" rows="5" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                            </textarea>
+                            <textarea id="description" name="description" type="text" rows="5" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
                         </div>
                     </div>
 
