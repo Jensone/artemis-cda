@@ -17,20 +17,24 @@ $dotenv->load(__DIR__ . '/.env', __DIR__ . '/.env.local');
 $authors = Database::getAll('Author');
 $publishers = Database::getAll('Publisher');
 
+$title = 'Martin à la plage';
+$author = 'Pauline Monnier';
+$publisher = 'Hatier';
+$description = '';
 
 if (isset($_POST['submit'])) {
-    if ($_POST['api']) {
+    if (isset($_POST['api'])) {
+        echo 'La demande est envoyée à l\'API.';
         $client = OpenAI::client($_ENV['OPENAI_SK']);
 
         $result = $client->chat()->create([
             'model' => 'gpt-3.5-turbo',
             'messages' => [
-                ['role' => 'user', 'content' => 'Combien font 2 et 2 ?'],
+                ['role' => 'assistant', 'content' => 'Tu es un assistant pour une bibliothèque, ton rôle consiste à rédiger des textes de description pour des livres à partir du titre, de l\'auteur et de la maison d\'édition. Rédige la description pour ce livre : '. $title . ', écrit par '. $author .'  et publié par '. $publisher . '.'],
             ],
         ]);
 
-        echo $result->choices[0]->message->content;
-        die();
+        $description = $result->choices[0]->message->content;
     } else {
         Book::addBook(
             $_POST['title'],
@@ -72,9 +76,12 @@ include __DIR__ . '/templates/hero.php';
                     </div>
 
                     <div class="sm:col-span-4">
-                        <label for="description" class="block text-sm font-medium leading-6 text-gray-900">Description</label>
+                        <div>
+                            <label for="description" class="block text-sm font-medium leading-6 text-gray-900">Description</label>
+                            <button type="button" onclick="showModal('ai')" class="rounded-md bg-transparent-600 px-3 py-2 text-xs font-semibold text-black hover:text-white border hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Rédaction par IA 🦾</button>
+                        </div>
                         <div class="mt-2">
-                            <textarea id="description" name="description" type="text" rows="5" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                            <textarea id="description" name="description" type="text" rows="5" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"><?= !empty($description) ? $description : '' ?></textarea>
                         </div>
                     </div>
 
@@ -83,18 +90,18 @@ include __DIR__ . '/templates/hero.php';
                         <div class="mt-2">
                             <select type="text" name="author" id="author" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 <?php foreach ($authors as $author) : ?>
-                                    <option value="<?= $author['id'] ?>"><?= $author['name'] ?></option>
+                                    <option value="<?= $author['id'] ?>" data-author="<?= $author['name'] ?>"><?= $author['name'] ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
                     </div>
 
                     <div class="sm:col-span-2">
-                        <label for="editor" class="block text-sm font-medium leading-6 text-gray-900">Maison d'édition</label>
+                        <label for="publisher" class="block text-sm font-medium leading-6 text-gray-900">Maison d'édition</label>
                         <div class="mt-2">
-                            <select type="text" name="editor" id="editor" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <select type="text" name="publisher" id="publisher" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 <?php foreach ($publishers as $publishers) : ?>
-                                    <option value="<?= $publishers['id'] ?>"><?= $publishers['name'] ?></option>
+                                    <option value="<?= $publishers['id'] ?>" data-publisher="<?= $publishers['name'] ?>"><?= $publishers['name'] ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -109,7 +116,14 @@ include __DIR__ . '/templates/hero.php';
     </form>
 </div>
 
+<script>
+    // Récupérer les éléments du DOM : Titre en live, auteur, maison d'édition
+    let author = document.querySelector('#author').getAttribute('data-author')
+    let publisher = document.querySelector('#publisher')
+</script>
 
 <?php
+
+include __DIR__ . '/templates/_partials/modal_ai.php';
 
 include __DIR__ . '/templates/footer.php';
