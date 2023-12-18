@@ -19,7 +19,6 @@ $publishers = Database::getAll('Publisher');
 
 
 if (isset($_POST['submit'])) {
-
     if ($_POST['api']) {
         $client = OpenAI::client($_ENV['OPENAI_SK']);
 
