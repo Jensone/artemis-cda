@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         );
 
         header('Location: index.php');
-        
+
     } elseif (isset($_POST['api'])) {
         $title = $_POST['title'];
         $author_id = $_POST['author'];
@@ -51,8 +51,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
 
-        // var_dump($title, $author_name, $publisher_name, $author_id, $publisher_id);
-        // die();
         $client = OpenAI::client($_ENV['OPENAI_SK']);
 
         $result = $client->chat()->create([
